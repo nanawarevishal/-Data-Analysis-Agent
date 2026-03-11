@@ -4,11 +4,10 @@ from pydantic import BaseModel
 
 class QueryRequest(BaseModel):
     question: str
+    session_id: str = "default"  # Default session for easy testing
 
 
 class QueryResponse(BaseModel):
-    question: str
-    sql_query: str
-    query_result: str
     final_answer: str
-    error: str | None = None
+    sql_query: str
+    session_id: str
